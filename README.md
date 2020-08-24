@@ -15,7 +15,7 @@ Be carefull, this code is provided without any warranty it will work on your mac
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 
-Windows version : work in progress, but any contribution is welcome !!**
+**Windows version : work in progress, but any contribution is welcome !!**
 
 
 Copyright Eric Bachard / 2020 August 23rd, 13:24:52 (UTC+0200)
@@ -57,5 +57,6 @@ ffmpeg (e.g.) intp .mp3 or whatever compressed format.
 ````
 ffmpeg -i test.wav -vn -ar 44100 -ac 2 -b:a 192k test.mp3
 ````
+## Feedback
 
 **Any constructive feedback is welcome !**
