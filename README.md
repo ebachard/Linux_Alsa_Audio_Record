@@ -5,7 +5,7 @@
 It should work on any recent Linux box using Pulseaudio, and the compilation depends on 
 alsa (libasound2, lib libasound2-dev), pulseaudio and the pthread library.
 
-Be carefull, this code is provided without any gar it will work on your machine, and you use it at your own risks !
+Be carefull, this code is provided without any warranty it will work on your machine, and you use it at your own risks !
 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
