@@ -54,8 +54,8 @@ Once everything is ok, you can start recording anything typing :
 
 Important:  the output file is a .wav, and you'll have to convert it using 
 ffmpeg (e.g.) intp .mp3 or whatever compressed format.
-
+````
 ffmpeg -i test.wav -vn -ar 44100 -ac 2 -b:a 192k test.mp3
-
+````
 
 **Any constructive feedback is welcome !**
