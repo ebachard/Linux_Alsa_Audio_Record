@@ -47,7 +47,7 @@ N.B. : if you don't own amicrophone, just connect a webcam instead
 
 Once everything is ok, you can start recording anything typing : 
 
-**alsa_record  test.wav**
+**./alsa_record  test.wav**
 
 (type ESC to stop recording and quit)
 
