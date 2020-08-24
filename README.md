@@ -1,6 +1,6 @@
 
 
-**Alsa_record** (C++) : this code, after compilation, allows to record audio on Linux in one simple command line (approx 1 hour max if I'mnot too wrong)
+**Alsa_record** (C++) : this code, after compilation, allows to record audio on Linux in one simple command line (approx 1 hour max if I'm not too wrong)
 
 It should work on any recent Linux box using Pulseaudio, and the compilation depends on 
 alsa (libasound2, lib libasound2-dev), pulseaudio and the pthread library.
