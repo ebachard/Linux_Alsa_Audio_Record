@@ -1,5 +1,6 @@
 
-**Alsa_record (C++) : allows to record audio on Linux (approx 1 hour max if I'mnot too wrong)
+
+**Alsa_record** (C++) : this code, after compilation, allows to record audio on Linux in one simple command line (approx 1 hour max if I'mnot too wrong)
 
 It should work on any recent Linux box using Pulseaudio, and the compilation depends on 
 alsa (libasound2, lib libasound2-dev), pulseaudio and the pthread library.
@@ -24,7 +25,7 @@ Copyright Eric Bachard / 2020 August 23rd, 13:24:52 (UTC+0200)
 
 This project is under GPL v3 License. See : http://www.gnu.org/licenses/gpl-3.0.html 
 and has been inspired from https://github.com/vrxfile/trik_alsa_record_test,
-with a big thank you to Rostislav Varzar who provides the code with a free license.
+with **a big thank you to Rostislav Varzar who provides the initial code, and the ideas under a free license**.
 
 **Questions ? Please file an issue !**
 
