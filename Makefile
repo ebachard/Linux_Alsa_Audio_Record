@@ -26,14 +26,13 @@ OUTBIN_ALL = 	$(OUTBIN) 	$(OUTBIN_DEBUG)
 
 INCLUDE_DIR = -Iinc
 
-#OBJS = ${SOURCES_DIR}/getch.c ${SOURCES_DIR}/alsa_record.cpp
 OBJS =  \
         ${SOURCES_DIR}/getch.c \
         ${SOURCES_DIR}/alsa_record.cpp
 
 DEPS = $^
 
-#GCC_SECURITY_FLAGS = -fstack-protector -pie -fPIE -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security
+GCC_SECURITY_FLAGS = -fstack-protector -pie -fPIE -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security
 
 CFLAGS = ${CC_FLAGS} ${CC_STD} ${OS_FLAGS}
 CFLAGS_DEBUG = -g -DDEBUG
