@@ -20,6 +20,7 @@
 // this is the bitrate
 //#define MAX_BUF_SIZE	512
 #define MAX_BUF_SIZE	1024
+//#define MAX_BUF_SIZE	4096
 //  8s
 //#define MAX_SAMPLES	256000
 #define MAX_SAMPLES	512000
@@ -110,71 +111,7 @@ int AlsaRecord::init_soundcard()
         std::cerr << "cannot start soundcard " << "(" << snd_strerror(err) << ", " << err << ")" << "\n";
         return START_ERROR;
     }
-#ifdef DEBUG
-    std::cout << "Parameters of PCM:" << "\n";
-    std::cout << capture_handle << "\n";
-    std::cout << snd_pcm_name(capture_handle) << "\n";
-    std::cout << snd_pcm_type(capture_handle) << "\n";
-    std::cout << snd_pcm_stream(capture_handle) << "\n";
-    std::cout << snd_pcm_poll_descriptors_count(capture_handle) << "\n";
-    std::cout << snd_pcm_state(capture_handle) << "\n";
-    std::cout << snd_pcm_avail(capture_handle) << "\n";
-    std::cout << snd_pcm_avail_update(capture_handle) << "\n";
-    std::cout << snd_pcm_rewindable(capture_handle) << "\n";
-    std::cout << snd_pcm_forwardable(capture_handle) << "\n";
-    std::cout << "-------------------------------------" << "\n";
-    std::cout << snd_pcm_info_malloc(&s_info) << "\n";
-    std::cout << snd_pcm_info(capture_handle, s_info) << "\n";
-    std::cout << snd_pcm_info_get_device(s_info) << "\n";
-    std::cout << snd_pcm_info_get_subdevice(s_info) << "\n";
-    std::cout << snd_pcm_info_get_stream(s_info) << "\n";
-    std::cout << snd_pcm_info_get_card(s_info) << "\n";
-    std::cout << snd_pcm_info_get_id(s_info) << "\n";
-    std::cout << snd_pcm_info_get_name(s_info) << "\n";
-    std::cout << snd_pcm_info_get_subdevice_name(s_info) << "\n";
-    std::cout << snd_pcm_info_get_class(s_info) << "\n";
-    std::cout << snd_pcm_info_get_subclass(s_info) << "\n";
-    std::cout << snd_pcm_info_get_subdevices_count(s_info) << "\n";
-    std::cout << snd_pcm_info_get_subdevices_avail(s_info) << "\n";
-    std::cout << "-------------------------------------" << "\n";
-    std::cout << snd_pcm_hw_params_current(capture_handle, hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_is_double(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_is_batch(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_is_block_transfer(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_is_monotonic(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_can_overrange(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_can_pause(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_can_resume(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_is_half_duplex(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_is_joint_duplex(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_can_sync_start(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_can_disable_period_wakeup(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_get_sbits(hw_params) << "\n";
-    std::cout << snd_pcm_hw_params_get_fifo_size(hw_params) << "\n";
-    std::cout << "-------------------------------------" << "\n";
 
-    unsigned int *tmp1 = (unsigned int *)malloc(sizeof(unsigned int));
-    int *tmp2 = (int *)malloc(sizeof(int));
-
-    std::cout << snd_pcm_hw_params_get_channels(hw_params, tmp1) << "\n"; std::cout << *tmp1 << "\n";
-    std::cout << snd_pcm_hw_params_get_channels_min(hw_params, tmp1) << "\n"; std::cout << *tmp1 << "\n";
-    std::cout << snd_pcm_hw_params_get_channels_max(hw_params, tmp1) << "\n"; std::cout << *tmp1 << "\n";
-    std::cout << snd_pcm_hw_params_get_rate(hw_params, tmp1, tmp2) << "\n"; std::cout << *tmp1 << " " << *tmp2 << "\n";
-    std::cout << snd_pcm_hw_params_get_rate_min(hw_params, tmp1, tmp2) << "\n"; std::cout << *tmp1 << " " << *tmp2 << "\n";
-    std::cout << snd_pcm_hw_params_get_rate_max(hw_params, tmp1, tmp2) << "\n"; std::cout << *tmp1 << " " << *tmp2 << "\n";
-    std::cout << snd_pcm_hw_params_get_rate_resample(capture_handle, hw_params, tmp1) << "\n"; std::cout << *tmp1 << "\n";
-    std::cout << snd_pcm_hw_params_get_export_buffer(capture_handle, hw_params, tmp1) << "\n"; std::cout << *tmp1 << "\n";
-    std::cout << snd_pcm_hw_params_get_period_wakeup(capture_handle, hw_params, tmp1) << "\n"; std::cout << *tmp1 << "\n";
-    std::cout << snd_pcm_hw_params_get_period_time(hw_params, tmp1, tmp2) << "\n"; std::cout << *tmp1 << " " << *tmp2 << "\n";
-    std::cout << snd_pcm_hw_params_get_period_time_min(hw_params, tmp1, tmp2) << "\n"; std::cout << *tmp1 << " " << *tmp2 << "\n";
-    std::cout << snd_pcm_hw_params_get_period_time_max(hw_params, tmp1, tmp2) << "\n"; std::cout << *tmp1 << " " << *tmp2 << "\n";
-
-    snd_pcm_hw_params_free(hw_params);
-    //
-    snd_pcm_info_free(s_info);
-    free(tmp1);
-    free(tmp2);
-#endif
     return EXIT_SUCCESS;
 }
 
@@ -254,9 +191,6 @@ static void keyboard_loop()
     {
         c = 0;
         c=getch();
-
-        std::cout << "Valeur décimale du Caractère entré : " << (unsigned int)c  << "\n";
-        std::cout << "Code ascii du caractère entré      : " << (char)c  << "\n";
     }
     if (c == 27) // esc
         b_quit = true;

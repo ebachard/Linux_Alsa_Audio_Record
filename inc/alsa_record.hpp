@@ -59,7 +59,7 @@ class AlsaRecord
         snd_pcm_hw_params_t* hw_params;
         snd_pcm_info_t* s_info;
 
-        unsigned int srate = 44100;
+        unsigned int srate = 48000;
         unsigned int nchan = 2;
 
         char * wav_name;
