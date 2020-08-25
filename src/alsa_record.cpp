@@ -122,22 +122,26 @@ int AlsaRecord::close_soundcard()
 
 int AlsaRecord::init_wav_header()
 {
-    wav_h.ChunkID[0] = 'R';
-    wav_h.ChunkID[1] = 'I';
-    wav_h.ChunkID[2] = 'F';
-    wav_h.ChunkID[3] = 'F';
-    wav_h.Format[0] = 'W';
-    wav_h.Format[1] = 'A';
-    wav_h.Format[2] = 'V';
-    wav_h.Format[3] = 'E';
+    wav_h.ChunkID[0]     = 'R';
+    wav_h.ChunkID[1]     = 'I';
+    wav_h.ChunkID[2]     = 'F';
+    wav_h.ChunkID[3]     = 'F';
+
+    wav_h.Format[0]      = 'W';
+    wav_h.Format[1]      = 'A';
+    wav_h.Format[2]      = 'V';
+    wav_h.Format[3]      = 'E';
+
     wav_h.Subchunk1ID[0] = 'f';
     wav_h.Subchunk1ID[1] = 'm';
     wav_h.Subchunk1ID[2] = 't';
     wav_h.Subchunk1ID[3] = ' ';
+
     wav_h.Subchunk2ID[0] = 'd';
     wav_h.Subchunk2ID[1] = 'a';
     wav_h.Subchunk2ID[2] = 't';
     wav_h.Subchunk2ID[3] = 'a';
+
     wav_h.NumChannels = nchan;
     wav_h.BitsPerSample = 16;
     wav_h.Subchunk2Size = 300 * MAX_SAMPLES * (uint32_t) wav_h.NumChannels * (uint32_t) wav_h.BitsPerSample / 8;
